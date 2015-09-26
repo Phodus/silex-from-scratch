@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+
+{% if form is defined %}
+	{% form_theme form 'form/fields.twig' %}
+ {% endif %}
+
+{% block content %}
+    {% if sent %}
+        <div class="alert alert-success" role="alert">Successfully added</div>
+    {% endif %}
+
+    <p>Add an Element</p>
+    {{ form(form, {'action': '/add', 'method': 'POST'}) }}
+{% endblock %}

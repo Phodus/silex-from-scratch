@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+{% block content %}
+	{% if form is defined %}
+		{% form_theme form 'form/fields.twig' %}
+	    {% if sent %}
+	        <div class="alert alert-success" role="alert">Successfully edited</div>
+		{% else %}
+			<p>Edit an Element</p>
+	    	{{ form(form, {'action': '/edit/' ~ id, 'method': 'POST'}) }}
+	    {% endif %}
+	{% else %}
+			<div class="alert alert-danger" role="alert">Element not found</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>Elements</th>
+    </tr>
+    {% for key,value in list %}
+    <tr>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
