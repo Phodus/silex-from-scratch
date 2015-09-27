@@ -9,4 +9,3 @@ Il permet d'afficher une liste, un formulaire d'ajout et un formulaire d'éditio
 - Mettre en place du MVC
 - Utiliser des assets dans les vues twig
 - Lier les données (list) sur un fichier json
-- Permettre d'éditer les éléments

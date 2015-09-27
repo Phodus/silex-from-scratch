@@ -16,6 +16,7 @@ $app['baseUrl'] = $app['config']['base_url'];
 $app['debug'] = $app['config']['debug'];
 
 $app->register(new Silex\Provider\ValidatorServiceProvider());
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'translator.domains' => array(),
@@ -39,7 +40,7 @@ $app->get('/', function () use ($app) {
                    'element 3'
                ),
             ));
-});
+})->bind('index');
 
 $app->match('/add', function(Request $request) use ($app) {
 
@@ -137,5 +138,9 @@ $app->match('/edit/{id}', function(Request $request, $id) use ($app) {
     }
 })->bind('edit');
 
+$app->match('/delete/{id}', function(Request $request, $id) use ($app) {
+    // Remove element here
+    return $app->redirect($app["url_generator"]->generate('index'));
+})->bind('delete');
 
 return $app;

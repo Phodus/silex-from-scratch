@@ -1,14 +1,35 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-<table class="table">
-    <tr>
-        <th>Elements</th>
-    </tr>
-    {% for key,value in list %}
-    <tr>
-        <td>{{value}}</td>
-    </tr>
-    {% endfor %}
-</table>
+    {% if list %}
+    <table class="table">
+        <tr>
+            <th>Elements</th>
+        </tr>
+        {% for id,value in list %}
+        <tr>
+            <td>{{value}}</td>
+            <td>
+                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal" data-id="{{id}}">Delete</button> <a class="btn btn-default" href="/edit/{{id}}" role="button">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="alert alert-info" role="alert">Nothing</div>
+    {% endif %}
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4>Are you sure?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" onclick="remove();">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}
