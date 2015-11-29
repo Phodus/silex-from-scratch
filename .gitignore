@@ -1,4 +1,5 @@
 log
 vendor
+bower_components
 composer.lock
 .idea
