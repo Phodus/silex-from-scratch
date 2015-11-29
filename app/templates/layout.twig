@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>My Webapp</title>
-  <link href="/media/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>My Webapp</title>
+
+    {% block stylesheets %}
+        <link href="/media/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+    {% endblock %}
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -33,8 +36,10 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script src="/media/jquery/jquery.min.js"></script>
-    <script src="/media/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/functions.js"></script>
+    {% block javascripts %}
+        <script src="/media/jquery/dist/jquery.min.js"></script>
+        <script src="/media/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/js/functions.js"></script>
+    {% endblock %}
 </body>
 </html>
